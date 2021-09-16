@@ -22,6 +22,7 @@ const countOnly = function(allItems, itemsToCount) {
   return items;
 }
 
+
 const firstNames = [
   "Karl",
   "Salima",

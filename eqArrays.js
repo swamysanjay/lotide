@@ -8,21 +8,21 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(array1, array2) {
+  let correct = true;
+
+  //if the two arrays are not the same length the assertion fails automatically
   if (array1.length !== array2.length) {
-    return false;
-  }
-  for (let i = 0; i < array1.length; i++) {
-    if ((Array.isArray(array1[i]) || Array.isArray(array2[i])) && eqArrays(array1[i], array2[i]) === false) {
-      return false;
-    }
-    else if (Array.isArray(array1[i]) || Array.isArray(array2[i])) {
-      eqArrays(array1[i], array2[i]);
-    }
-    else if (array1[i] !== array2[i]) {
-      return false;
+    correct = false;
+  } 
+
+  //if the two arrays are the same length this runs:
+  for (let i = 0; i < array1.length; i ++) {
+    if (array1[i] !== array2[i]) {
+      correct = false;
     }
   }
-  return true;
+
+  return correct;
 
 }
 
